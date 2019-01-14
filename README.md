@@ -63,7 +63,7 @@ List of possible options in the module:
 
 | Option            | Default  | Required | Description                                                                                         |
 |-------------------|----------|----------|-----------------------------------------------------------------------------------------------------|
-| locale            | 'en_GB'  | false    | Facebook chat locale                                                                                |
+| locale            | en_GB    | false    | Facebook chat locale                                                                                |
 | version           | v2.12    | false    | Facebook Customer Chat SDK version                                                                  |
 | autoLogAppEvents  | true     | false    | as Facebook. Automatically log app events                                                           |
 | lib               | true     | false    | Unique id to determine if component is loaded. You probably don't need to change this.              |
