@@ -4,7 +4,7 @@
 
 ## Svelte Facebook Customer Chat
 
-[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com) [![CircleCI](https://circleci.com/gh/beyonk-adventures/svelte-facebook-pixel.svg?style=shield)](https://circleci.com/gh/beyonk-adventures/svelte-facebook-pixel)
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com) [![CircleCI](https://circleci.com/gh/beyonk-adventures/svelte-facebook-customer-chat.svg?style=shield)](https://circleci.com/gh/beyonk-adventures/svelte-facebook-customer-chat)
 
 
 Pure vanilla JS Facebook Customer Chat integration
@@ -14,7 +14,7 @@ Pure vanilla JS Facebook Customer Chat integration
 ## Install
 
 ```bash
-$ npm install --save-dev @beyonk/svelte-customer-chat
+$ npm install --save-dev @beyonk/svelte-facebook-customer-chat
 ```
 
 ## Usage (With Svelte)
@@ -23,7 +23,7 @@ $ npm install --save-dev @beyonk/svelte-customer-chat
 <CustomerChat ref:fb page_id="163258547622199" theme_color="#05a092"  />
 
 <script>
-  import CustomerChat from '@beyonk/svelte-customer-chat'
+  import CustomerChat from '@beyonk/svelte-facebook-customer-chat'
 
 	export default {
 		components: {
@@ -43,7 +43,7 @@ You definitely need to pass the attribute `page_id`.
 <div id="my-chat"></div>
 
 <script>
-  import CustomerChat from '@beyonk/svelte-customer-chat'
+  import CustomerChat from '@beyonk/svelte-facebook-customer-chat'
 
 	const chat = new CustomerChat({
 		target: document.querySelector('#my-chat'),
