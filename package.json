@@ -1,0 +1,27 @@
+{
+  "name": "@beyonk/svelte-customer-chat",
+  "version": "0.0.0",
+  "svelte": "src/CustomerChat.html",
+  "module": "index.mjs",
+  "main": "index.js",
+  "scripts": {
+    "build": "rollup -c",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "rollup": "^1.1.0",
+    "rollup-plugin-svelte": "^5.0.1",
+    "svelte": "^2.16.0"
+  },
+  "keywords": [
+    "svelte",
+    "facebook",
+    "chat",
+    "customer-chat"
+  ],
+  "files": [
+    "src",
+    "index.mjs",
+    "index.js"
+  ]
+}

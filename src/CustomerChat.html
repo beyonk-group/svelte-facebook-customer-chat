@@ -1,0 +1,61 @@
+<div id="fb-root"></div>
+<div class="fb-customerchat"
+  attribution=setup_tool
+  {...props}
+  >
+</div>
+
+<script>
+  const provider = 'BEYONK'
+
+  export default {
+    data () {
+      return {
+        lib: '@beyonk/svelte-facebook-customer-chat',
+        autoLogAppEvents: true,
+        locale: 'en_GB',
+        version: 'v2.12'
+      }
+    },
+
+    async oncreate () {
+      const { lib } = this.get()
+      window[provider] = window[provider] || {}
+      window[provider][lib] = window[provider][lib] || {}
+      if (!window[provider][lib].loaded) {
+        await this.addTag() 
+        this.enableChat()
+      }
+    },
+
+    methods: {
+      addTag () {
+        const { locale } = this.get()
+        return new Promise((resolve, reject) => {
+          const script = document.createElement('script')
+          script.onload = resolve
+          script.onerror = reject
+          script.async = true
+          script.src = `//connect.facebook.net/${locale}/sdk/xfbml.customerchat.js`
+          document.body.appendChild(script)
+        })
+      },
+
+      enableChat () {
+        const { version, autoLogAppEvents, lib } = this.get()
+        window['FB'].init({
+          autoLogAppEvents,
+          xfbml            : true,
+          version
+        })
+        window[provider][lib].loaded = true
+      }
+    },
+
+    computed: {
+      props (state) {
+        return state
+      }
+    }
+  }
+</script>
