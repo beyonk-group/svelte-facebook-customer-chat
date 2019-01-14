@@ -1,5 +1,5 @@
 {
-  "name": "@beyonk/svelte-customer-chat",
+  "name": "@beyonk/svelte-facebook-customer-chat",
   "version": "0.0.0",
   "svelte": "src/CustomerChat.html",
   "module": "index.mjs",
