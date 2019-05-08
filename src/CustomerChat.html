@@ -45,10 +45,11 @@
         const { version, autoLogAppEvents, lib } = this.get()
         window['FB'].init({
           autoLogAppEvents,
-          xfbml            : true,
+          xfbml            : false,
           version
         })
         window[provider][lib].loaded = true
+        FB.XFBML.parse()
       }
     },
 
