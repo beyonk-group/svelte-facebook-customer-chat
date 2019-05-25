@@ -6,7 +6,7 @@
 </div>
 
 <script>
-  const provider = 'BEYONK'
+  import loader from '@beyonk/async-script-loader'
 
   export default {
     data () {
@@ -19,36 +19,22 @@
     },
 
     async oncreate () {
-      const { lib } = this.get()
-      window[provider] = window[provider] || {}
-      window[provider][lib] = window[provider][lib] || {}
-      if (!window[provider][lib].loaded) {
-        await this.addTag() 
-        this.enableChat()
-      }
+      const { locale } = this.get()
+      loader(
+        `//connect.facebook.net/${locale}/sdk/xfbml.customerchat.js`,
+        () => { return window.hasOwnProperty('FB') },
+        () => { this.enableChat() }
+      )
     },
 
     methods: {
-      addTag () {
-        const { locale } = this.get()
-        return new Promise((resolve, reject) => {
-          const script = document.createElement('script')
-          script.onload = resolve
-          script.onerror = reject
-          script.async = true
-          script.src = `//connect.facebook.net/${locale}/sdk/xfbml.customerchat.js`
-          document.body.appendChild(script)
-        })
-      },
-
       enableChat () {
-        const { version, autoLogAppEvents, lib } = this.get()
+        const { version, autoLogAppEvents } = this.get()
         window['FB'].init({
           autoLogAppEvents,
-          xfbml            : false,
+          xfbml: false,
           version
         })
-        window[provider][lib].loaded = true
         FB.XFBML.parse()
       }
     },
