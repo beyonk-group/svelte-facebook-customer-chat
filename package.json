@@ -1,6 +1,6 @@
 {
   "name": "@beyonk/svelte-facebook-customer-chat",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "svelte": "src/CustomerChat.html",
   "module": "index.mjs",
   "main": "index.js",
